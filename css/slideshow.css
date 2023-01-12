@@ -54,7 +54,7 @@ body {
   color: goldenrod;
   opacity: 0.7;
 }
-.indicator a.active{
- color: burlywood;
- opacity: 1;
+.indicator a.active {
+  color: burlywood;
+  opacity: 1;
 }

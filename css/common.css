@@ -1,18 +1,36 @@
+:root {
+  --main-color: rgba(245, 236, 217, 0.689);
+  --text-color: #222222;
+  --footer-back: #eeeeee;
+  --footer-text: #bdbdbd;
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+}
 /* 마진 패딩 초기화 */
 * {
   padding: 0;
   margin: 0;
-}
-body {
   font-family: "Noto Serif KR", serif;
 }
-#logo {
-  font-family: "Noto Sans SC", sans-serif;
-  margin: 1.5rem 0;
-  font-weight: 400;
-  font-size: 2.8rem;
-}
-
 /* 페이지 기본 글꼴과 크기 설정 */
 img {
   border: 0;
@@ -27,21 +45,21 @@ a {
 }
 a:link {
   text-decoration: none;
-  color: #222222;
+  color: var(--text-color);
 }
 a:hover {
   text-decoration: none;
-  color: #222222;
+  color: var(--text-color);
 }
 a:visited {
   text-decoration: none;
-  color: #222222;
+  color: var(--text-color);
 }
 a:active {
   text-decoration: none;
-  color: #222222;
+  color: var(--text-color);
 }
-/* 상단 헤더 */
+/* header */
 #top {
   width: 100%;
   height: 2rem;
@@ -50,25 +68,54 @@ a:active {
   flex-direction: row;
   justify-content: right;
 }
-#top_menu{
+#top_menu {
+  font-size: 0.9rem;
   display: flex;
   justify-content: right;
   margin: 0.3rem 2rem;
 }
-#top_menu li{
+#top_menu li {
   margin-right: 0.5rem;
 }
-#menu_bar{
+#logo {
+  font-family: "Noto Sans SC", sans-serif;
+  margin: 1.5rem 0;
+  font-weight: 400;
+  font-size: 2.8rem;
+}
+#menu_bar {
   margin: 0;
-  background-color: rgba(245, 236, 217, 0.689);
+  background-color: var(--main-color);
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-#menu_bar ul{
+#menu_bar ul {
   display: flex;
 }
-#menu_bar li{
+#menu_bar li {
   font-size: 1.2rem;
   margin: auto 2rem;
+}
+
+/* footer */
+#footer_content {
+  padding-top: 2rem;
+  height: 10rem;
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--footer-back);
+  color: var(--footer-text);
+  font-size: 0.8rem;
+}
+#footer_content #footer_text li {
+  margin: 0.2rem 0;
+}
+#footer_link span {
+  width: 1.5rem;
+  margin: 1rem 1.4rem;
+}
+#footer_link ul {
+  margin: 1rem;
+  display: flex;
 }

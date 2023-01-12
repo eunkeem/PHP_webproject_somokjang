@@ -1,0 +1,78 @@
+:root {
+  --main-color: rgba(245, 236, 217, 0.689);
+  --main-text: rgb(70, 61, 40);
+  --text-color: #222222;
+  --footer-back: #eeeeee;
+  --footer-text: #bdbdbd;
+}
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2.5rem auto;
+}
+form {
+  position: relative;
+  width: 500px;
+  /* border: 2px solid #ccc; */
+  border-radius: 10px;
+  padding: 30px;
+  background: var(--footer-back);
+  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--main-text);
+}
+input {
+  display: block;
+  border: 0.05rem solid var(--footer-text);
+  width: 95%;
+  padding: 10px;
+  margin: 0.1rem auto 1rem;
+  border-radius: 5px;
+}
+.input_id_box {
+  display: flex;
+  flex-direction: row;
+}
+.input_id {
+  display: inline;
+  margin-right: 0.2rem;
+}
+label {
+  color: rgb(0, 0, 0);
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.3rem;
+}
+.btn {
+  display: inline;
+  float: right;
+  background: var(--main-text);
+  padding: 0.5rem 0.6rem;
+  color: #fff;
+  border-radius: 5px;
+  margin-right: 10px;
+  border: none;
+  width: 100px;
+}
+.error {
+  background: #f2dede;
+  color: #a94442;
+  padding: 10px;
+  width: 95%;
+  border-radius: 5px;
+  margin: 20px auto;
+}
+.success {
+  background: #d4edda;
+  color: #40754c;
+  padding: 5px;
+  width: 95%;
+  border-radius: 5px;
+  margin: 20px auto;
+}

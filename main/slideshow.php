@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <title>Slideshow</title>
-</head>
-
 <body onload="call_js()">
   <div class="slideshow">
     <div class="slideshow_slide">
@@ -27,5 +19,3 @@
     </div>
   </div>
 </body>
-
-</html>

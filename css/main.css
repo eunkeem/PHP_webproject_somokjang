@@ -1,21 +1,26 @@
 /* 메인 콘텐트 */
 #main_content {
-  /* position: relative; */
-  width: 1000px;
-  height: 240px;
-  margin: 0 auto;
+  margin: 3rem auto;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
- 
 }
 #announce {
-  /* position: absolute; */
-  top: 30px;
-  left: 50px;
+  width: 500px;
+  padding: 0.7rem;
+  margin: 0 2rem 0 0;
 }
-#video {
-  /* position: absolute; */
-  top: 30px;
-  left: 50px;
+
+#announce h4 {
+  font-size: 1.6rem;
+  border-bottom: 0.15rem solid lightgrey;
+  /* box-shadow: 0.25rem 0.25rem 0.5rem rgb(0 0 0 /20%); */
+}
+#announce li {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(73, 73, 73);
+  margin: 0.6rem 0 0.1rem;
+  padding: 0.5rem;
+  border-bottom: 0.06rem solid rgba(211, 211, 211, 0.841);
 }

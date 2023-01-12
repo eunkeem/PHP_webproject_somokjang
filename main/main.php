@@ -1,6 +1,6 @@
 <div id="main_content">
   <div id="announce">
-    <h4>공지사항</h4>
+    <h4>&nbsp;공지사항</h4>
     <?php
     include $_SERVER['DOCUMENT_ROOT'] . "/somokjang/db/db_connector.php";
     $sql = "select * from board order by num desc limit 5";
