@@ -1,0 +1,21 @@
+/* 메인 콘텐트 */
+#main_content {
+  /* position: relative; */
+  width: 1000px;
+  height: 240px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+ 
+}
+#announce {
+  /* position: absolute; */
+  top: 30px;
+  left: 50px;
+}
+#video {
+  /* position: absolute; */
+  top: 30px;
+  left: 50px;
+}

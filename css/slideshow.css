@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+.slideshow {
+  min-width: 960px;
+  height: 700px;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+}
+.slideshow_slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.slideshow_slide a {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+}
+
+/* nav */
+.prev {
+  margin-left: -460px;
+}
+.next {
+  margin-left: 460px;
+}
+.nav a {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 5rem;
+  color: goldenrod;
+  opacity: 0.6;
+}
+
+/* indicator */
+.indicator {
+  position: absolute;
+  text-align: center;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+}
+.indicator a {
+  font-size: 1.5rem;
+  padding: 1.5rem;
+  color: goldenrod;
+  opacity: 0.7;
+}
+.indicator a.active{
+ color: burlywood;
+ opacity: 1;
+}

@@ -1,0 +1,74 @@
+/* 마진 패딩 초기화 */
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Noto Serif KR", serif;
+}
+#logo {
+  font-family: "Noto Sans SC", sans-serif;
+  margin: 1.5rem 0;
+  font-weight: 400;
+  font-size: 2.8rem;
+}
+
+/* 페이지 기본 글꼴과 크기 설정 */
+img {
+  border: 0;
+}
+ul {
+  list-style-type: none;
+}
+/* <a> 태그 기본 설정 */
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+a:link {
+  text-decoration: none;
+  color: #222222;
+}
+a:hover {
+  text-decoration: none;
+  color: #222222;
+}
+a:visited {
+  text-decoration: none;
+  color: #222222;
+}
+a:active {
+  text-decoration: none;
+  color: #222222;
+}
+/* 상단 헤더 */
+#top {
+  width: 100%;
+  height: 2rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+#top_menu{
+  display: flex;
+  justify-content: right;
+  margin: 0.3rem 2rem;
+}
+#top_menu li{
+  margin-right: 0.5rem;
+}
+#menu_bar{
+  margin: 0;
+  background-color: rgba(245, 236, 217, 0.689);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#menu_bar ul{
+  display: flex;
+}
+#menu_bar li{
+  font-size: 1.2rem;
+  margin: auto 2rem;
+}
