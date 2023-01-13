@@ -3,9 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>PHP프로그래밍 입문</title>
-  <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST']; ?>/source20230105/css/common.css">
-  <link rel="stylesheet" type="text/css" href="http://<?= $_SERVER['HTTP_HOST']; ?>/source20230105/css/board.css">
+  <title> 小 木 匠 </title>
+  <link rel="stylesheet" type="text/css" href="../css/common.css">
+  <link rel="stylesheet" type="text/css" href="../css/board.css">
   <script>
     function check_input() {
       if (!document.board_form.subject.value) {
@@ -24,7 +24,7 @@
 </head>
 
 <body>
-  <header><?php include $_SERVER['DOCUMENT_ROOT'] . "/source20230105/header.php"; ?></header>
+<header><?php include "../common/header.php"; ?></header>
   <?php
   if (!isset($userid) || empty($userid)) {
     echo ("<script>
@@ -35,11 +35,10 @@
     exit();
   }
   ?>
-  <div id="main_img_bar"><img src="http://<?= $_SERVER['HTTP_HOST']; ?>/source20230105/img/main_img.png"></div>
   <div id="board_box">
     <h3 id="write_title">게시판 > 글쓰기</h3>
     <!-- enctype="multipart/form-data 의 기능 : 자료파일 첨부가 가능함 -->
-    <form name="board_form" action="http://<?= $_SERVER['HTTP_HOST']; ?>/source20230105/board/board_insert_server.php?mode=board_insert" method="post" enctype="multipart/form-data">
+    <form name="board_form" action="./board_insert_server.php?mode=board_insert" method="post" enctype="multipart/form-data">
       <ul id="board_form">
         <li>
           <span class="col1">작성자 : </span>
@@ -67,7 +66,7 @@
     </form>
   </div>
   <footer>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/source20230105/footer.php"; ?>
+  <?php include "../common/footer.php"; ?>
   </footer>
 </body>
 

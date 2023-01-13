@@ -3,7 +3,7 @@
     <h4>&nbsp;공지사항</h4>
     <?php
     include $_SERVER['DOCUMENT_ROOT'] . "/somokjang/db/db_connector.php";
-    $sql = "select * from board order by num desc limit 5";
+    $sql = "select * from board where id = 'admin' order by num desc limit 5";
     $result = mysqli_query($con, $sql);
     if (!$result) {
       echo "아직 공지사항이 없습니다.";

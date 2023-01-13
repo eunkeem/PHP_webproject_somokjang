@@ -25,7 +25,6 @@ if (isset($_SESSION["userpoint"])) {
     <?php
     } else {
       $logged = $username . "(" . $userid . ")님 오늘도 방문해 주셔서 감사합니다";
-      // $logged = $username . "(" . $userid . ")님[Level:" . $userlevel . ", Point:" . $userpoint . "]";
     ?>
       <li><?= $logged ?></li>
       <li> | </li>
@@ -49,9 +48,9 @@ if (isset($_SESSION["userpoint"])) {
     <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/index.php">小 木 匠</a>
   </h3>
   <ul>
-    <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/index.php">소개</a></li>
+    <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/contact/introduce.php">소개</a></li>
     <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/message/message_form.php">전시</a></li>
-    <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/board/board_form.php">묻고답하기</a></li>
+    <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/board/board_list.php">묻고답하기</a></li>
     <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/contact/contact.php">연락</a></li>
   </ul>
 </div>
