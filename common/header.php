@@ -21,16 +21,17 @@ if (isset($_SESSION["userpoint"])) {
     ?>
       <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/member/member_form.php">회원 가입</a></li>
       <li> | </li>
-      <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/login/login_form.php">로그인</a></li>
+      <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/member/login_form.php">로그인</a></li>
     <?php
     } else {
-      $logged = $username . "(" . $userid . ")님[Level:" . $userlevel . ", Point:" . $userpoint . "]";
+      $logged = $username . "(" . $userid . ")님 오늘도 방문해 주셔서 감사합니다";
+      // $logged = $username . "(" . $userid . ")님[Level:" . $userlevel . ", Point:" . $userpoint . "]";
     ?>
       <li><?= $logged ?></li>
       <li> | </li>
-      <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/login/logout_server.php">로그아웃</a></li>
+      <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/member/logout_server.php?mode=logdout">로그아웃</a></li>
       <li> | </li>
-      <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/member_modify/member_modify_form.php">정보수정</a>
+      <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/member/member_modify_form.php">정보수정</a>
       </li>
     <?php
     }
@@ -50,7 +51,7 @@ if (isset($_SESSION["userpoint"])) {
   <ul>
     <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/index.php">소개</a></li>
     <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/message/message_form.php">전시</a></li>
-    <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/board/board_form.php">공지사항</a></li>
-    <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/index.php">연락</a></li>
+    <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/board/board_form.php">묻고답하기</a></li>
+    <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/contact/contact.php">연락</a></li>
   </ul>
 </div>

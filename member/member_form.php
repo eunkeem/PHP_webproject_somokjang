@@ -14,14 +14,6 @@
   <div class="register">
     <form name="member_form" action="./member_insert_server.php" method="post">
       <h2>회원가입</h2>
-      <?php
-      if (isset($_GET['error'])) {
-        echo "<p class = 'error'>{$_GET['error']}</p>";
-      }
-      if (isset($_GET['success'])) {
-        echo "<p class = 'success'>{$_GET['success']}</p>";
-      }
-      ?>
       <label for="">아이디</label>
       <div class="input_id_box">
         <?php

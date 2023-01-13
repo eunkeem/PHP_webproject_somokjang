@@ -29,7 +29,10 @@ if (isset($_POST["id"]) && isset($_POST["password"]) && isset($_POST["name"]) &&
     $record_set = mysqli_query($con, $sql_same);
 
     if (mysqli_num_rows($record_set) > 0) {
-      header("location: member_form.php?error=아이디와 이메일이 존재합니다&$user_info");
+      echo ("<script>
+              alert('아이디 또는 이메일이 이미 존재합니다')
+              location.href = './member_form.php?&$user_info';
+            </script>");
       exit();
     } else {
       $sql_insert = "insert into members (id, pass, name, email, regist_day, level, point) ";
@@ -38,18 +41,24 @@ if (isset($_POST["id"]) && isset($_POST["password"]) && isset($_POST["name"]) &&
       mysqli_close($con);
       if ($result) {
         echo ("<script>
-        alert('축하드립니다\\n회원정보를 성공적으로 수정했습니다')
-        location.href = '..//index.php';
-    </script>");
+                alert('반갑습니다\\n회원가입을 완료했습니다')
+                location.href = '../index.php';
+              </script>");
         // header("location: ../index.php?success=성공적으로 가입 되었습니다.");
         exit();
       } else {
-        header("location: member_form.php?error=회원가입 실패했습니다.&$user_info");
+         echo ("<script>
+              alert('회원가입에 실패했습니다 \\n 서버 관리자에게 문의하세요')
+              location.href = './member_form.php?&$user_info';
+            </script>");
         exit();
       }
     }
   }
 } else {
-  header("location: member_form.php?error=다시입력해주세요");
+   echo ("<script>
+              alert('빈칸을 모두 채워주세요')
+              location.href = './member_form.php?&$user_info';
+            </script>");
   exit();
 }

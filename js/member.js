@@ -64,3 +64,40 @@ function check_id() {
     "left=700,top=300,width=350,height=200,scrollbars=no,resizable=yes, status=no, titlebar=no, toolbar=no"
   );
 }
+
+// 로그인
+function login_check_input() {
+  if (!document.login_form.id.value) {
+    alert("아이디를 입력하세요");
+    document.login_form.id.focus();
+    return;
+  }
+  if (!document.login_form.password.value) {
+    alert("패스워드를 입력하세요");
+    document.login_form.password.focus();
+    return;
+  }
+  // 서버에 전송하는 기능
+  document.login_form.submit();
+}
+
+//회원정보수정
+function modify_check_input() {
+  if (!document.member_modify_form.id.value) {
+    alert("아이디를 입력하세요");
+    document.member_modify_form.id.focus();
+    return;
+  }
+  if (!document.member_modify_form.password.value) {
+    alert("패스워드를 입력하세요");
+    document.member_modify_form.password.focus();
+    return;
+  }
+  if (!document.member_modify_form.password_check.value) {
+    alert("패스워드를 입력하세요");
+    document.member_modify_form.password_check.focus();
+    return;
+  }
+  // 서버에 전송하는 기능
+  document.member_modify_form.submit();
+}
