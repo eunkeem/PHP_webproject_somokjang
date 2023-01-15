@@ -2,6 +2,7 @@
   --main-color: rgba(245, 236, 217, 0.689);
   --main-text: rgb(70, 61, 40);
   --contact-text-color: rgb(101, 90, 66);
+  --contact-bar-color: rgba(119, 105, 79, 0.431);
   /* --footer-back: #eeeeee; */
   --footer-text: #bdbdbd;
 }
@@ -18,14 +19,19 @@
   align-items: left;
   text-align: left;
 }
-#contact_box div{
+#contact_box div {
   display: flex;
   flex-direction: row;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0 3rem;
   color: var(--contact-text-color);
 }
-h4{
-  width: 15rem;
+#contact_box span {
+  max-width: 550px;
+}
+h4 {
+  width: 12rem;
   font-weight: 800;
   color: var(--main-text);
+  border-right: 0.2rem solid var(--contact-bar-color);
+  margin-right: 0.5rem;
 }

@@ -1,0 +1,100 @@
+:root {
+  --main-color: rgba(245, 236, 217, 0.689);
+  --main-text: rgb(70, 61, 40);
+  --contact-text-color: rgb(101, 90, 66);
+  --contact-bar-color: rgba(119, 105, 79, 0.431);
+  /* --footer-back: #eeeeee; */
+  --footer-text: #bdbdbd;
+}
+.works {
+  display: flex;
+  /* flex-direction: column; */
+  flex-flow: column wrap;
+  width: 68%;
+  margin: 3rem auto;
+  align-items: center;
+  color: var(--contact-text-color);
+}
+.works_box {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+.img_container {
+  width: 420px;
+  height: 100%;
+}
+img {
+  margin: auto;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+table {
+  margin-top: 2rem;
+  width: 650px;
+  text-align: left;
+}
+th {
+  width: 5.5rem;
+}
+p {
+  color: var(--contact-text-color);
+}
+/* 이미지 클릭 시, 밝기 조절 */
+.img_container:hover {
+  opacity: 0.8;
+  display: block;
+}
+
+.modal {
+  display: none; /* 모달창 숨겨 놓기 */
+  position: fixed;
+  z-index: 1; /* 모달창을 제일 앞에 두기 */
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* 스크롤 허용 auto */
+  cursor: pointer; /* 마우스 손가락모양 */
+  background-color: rgba(0, 0, 0, 0.8);
+}
+/* 모달창 이미지 */
+.modal_content {
+  margin: auto;
+  display: block;
+  width: 50%;
+  height: auto;
+  max-width: 1000px;
+  border-radius: 10px;
+  animation-name: zoom;
+  animation-duration: 0.8s;
+}
+/* 모달창 애니메이션 추가 */
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+/* 닫기 버튼 꾸미기 */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}

@@ -12,7 +12,7 @@
     ?>
         <ul>
           <li>
-            <span><?= $row["subject"] ?></span>
+            <span><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/board/board_view.php?num=<?= $row['num'] ?>"><?= $row["subject"] ?></a></span>
             <span><?= substr($row["regist_day"], 0, 10) ?></span>
           </li>
         </ul>
@@ -21,7 +21,7 @@
     }
     ?>
   </div>
-  <div id="video">
+  <div id=" video">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/HngHgFyTSRU?start=554" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 </div>

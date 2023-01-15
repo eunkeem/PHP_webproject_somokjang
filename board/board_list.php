@@ -23,8 +23,8 @@
       </li>
       <?php
       include "../db/db_connector.php";
-      $page =$num = "";
-       $id = $name =$subject = $regist_day = $hit = "";
+      $page = $num = "";
+      $id = $name = $subject = $regist_day = $hit = "";
 
       if (isset($_GET["page"]) && !empty($_GET["page"])) {
         $page = $_GET["page"];
@@ -43,15 +43,12 @@
       // 4. 보려고 하는 페이지의 시작~끝 위치의 레코드셋을 가져온다.
       // mysql 의 [ limit 시작레코드넘버, 갯수 ]를 이용해서 해당 페이지의 레코드만 가져오는 쿼리문 작성.
       // 테이블의 레코드를 전부 가져오는것 보다 속도면에서 좋다.
-      $sql_select_admin = "select * from board where id = 'admin' order by num desc limit 2";
-      $countperpage = $scale - 2;
-      $sql_select = "select * from board order by num desc limit $start, $countperpage";
-      $result_admin = mysqli_query($con, $sql_select_admin);
+      $sql_select = "select * from board order by num desc limit $start, $scale";
       $result = mysqli_query($con, $sql_select);
       // 5. 보여줄 레코드의 넘버
       $number = $total_record - $start;
       // 6. 해당페이지의 가져올 레코드수를 출력해준다.
-      while ($row = mysqli_fetch_array($result_admin)) {
+      while ($row = mysqli_fetch_array($result)) {
         $num = $row["num"];
         $id = $row["id"];
         $name = $row["name"];
@@ -72,7 +69,7 @@
           <span class="col5"><?= $regist_day ?></span>
           <span class="col6"><?= $hit ?></span>
         </li>
-        <?php
+      <?php
         $number--;
       }
       while ($row = mysqli_fetch_array($result)) {
@@ -96,39 +93,40 @@
           <span class="col5"><?= $regist_day ?></span>
           <span class="col6"><?= $hit ?></span>
         </li>
-        <?php
+      <?php
         $number--;
       }
       mysqli_close($con);
       ?>
-      </ul>
-      <!-- 페이지를 출력한다. 함수 두가지 dbconnector 에서 골라 사용-->
-      <ul id="page_num">
+    </ul>
+    <!-- 페이지를 출력한다. 함수 두가지 dbconnector 에서 골라 사용-->
+    <ul id="page_num">
+      <?php
+      include "../common/get_paging.php";
+      $url = "board_list.php?&page=1";
+      echo get_paging1(10, $page, $total_page, $url);
+      // echo get_paging2($page, $total_page, $url);
+      ?>
+    </ul> <!-- page_num -->
+    <ul class="buttons">
+      <li>
         <?php
-        include "../common/get_paging.php";
-        $url = "board_list.php?&page=1";
-        echo get_paging1(10, $page, $total_page, $url);
-        // echo get_paging2($page, $total_page, $url);
+        if ($userid) {
         ?>
-      </ul> <!-- page_num -->
-      <ul class="buttons">
-        <li>
-          <?php
-          if ($userid) {
-          ?>
-            <button onclick="location.href='board_form.php'">글쓰기</button>
-          <?php
-          } else {
-          ?>
-            <a href="javascript:alert('로그인 후 이용해 주세요!')"><button>글쓰기</button></a>
-          <?php
-          }
-          ?>
-        </li>
-      </ul>
+          <button onclick="location.href='board_form.php'">글쓰기</button>
+        <?php
+        } else {
+        ?>
+          <a href="javascript:alert('로그인 후 이용해 주세요!')"><button>글쓰기</button></a>
+        <?php
+        }
+        ?>
+      </li>
+    </ul>
   </div><!-- board_box -->
   <footer>
-  <?php include "../common/footer.php"; ?>
+    <?php include "../common/footer.php"; ?>
   </footer>
 </body>
+
 </html>

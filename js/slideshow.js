@@ -26,7 +26,7 @@ function call_js() {
     timer = setInterval(() => {
       let nextIndex = (currentIndex + 1) % slidecount;
       gotoSlide(nextIndex);
-    }, 2000);
+    }, 2500);
   }
   startTimer();
 

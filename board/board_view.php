@@ -17,14 +17,24 @@
       </h3>
       <?php
       $num = $page = "";
-      if (!isset($_GET["num"]) || !isset($_GET["page"])) {
+      if (!isset($_GET["num"])) {
         echo ("<script>
       alert('잘못된 접근입니다')
       history.go(-1);
       </script>");
+      }
+      $num  = $_GET["num"];
+      // 메인페이지에서 링크로 들어와 페이지값이 없을 경우 첫페이지로가도록
+      if (!isset($_GET["page"])) {
+        $page = 1;
       } else {
-        $num  = $_GET["num"];
         $page = $_GET["page"];
+      }
+      // 로그인 안한 상태라면
+      if (!isset($_SESSION['userid'])) {
+        $userid = null;
+      } else {
+        $userid = $_SESSION['userid'];
       }
       include "../db/db_connector.php";
       $sql = "select * from board where num=$num";
@@ -33,7 +43,7 @@
       $row = mysqli_fetch_array($result);
       $id           = $row["id"];
       $name         = $row["name"];
-      $regist_day   = $row["regist_day"];
+      $regist_day   = substr($row["regist_day"], 0, 10);
       $subject      = $row["subject"];
       $content      = $row["content"];
       $file_name    = $row["file_name"];
@@ -51,7 +61,7 @@
       ?>
       <ul id="view_content">
         <li>
-          <span class="col1"><b>제목 :</b><?= $subject ?></span>
+          <span class="col1">제목 : <b><?= $subject ?></b></span>
           <span class="col2"><?= $name ?> | <?= $regist_day ?></span>
         </li>
         <li>
@@ -66,15 +76,22 @@
                   <a href='board_download.php?real_name=$real_name&file_name=$file_name&file_type=$file_type'>[저장]</a><br><br>";
           }
           ?>
-          <?= $content ?>
+          <b><?= $content ?></b>
         </li>
       </ul>
       <!-- 덧글 -->
       <div id="reply">
-        <h4>덧글</h4>
         <?php
         $sql = "select * from `board_reply` where parent='$num' ";
         $reply_result = mysqli_query($con, $sql);
+        $sql_count = "select count(*) from `board_reply` where parent='$num' ";
+        $reply_count_result = mysqli_query($con, $sql_count);
+        $count_row = mysqli_fetch_array($reply_count_result);
+        $total_reply = intval($count_row[0]);
+        ?>
+
+        <h4>덧글 <?= $total_reply ?> 개</h4>
+        <?php
         while ($reply_row = mysqli_fetch_array($reply_result)) {
           $reply_num = $reply_row['num'];
           $reply_id = $reply_row['id'];
@@ -90,7 +107,7 @@
               <li id="mdi_del">
                 <?php
                 // 관리자모드이거나 해당댓글작성자라면 삭제 가능 하도록
-                if ($_SESSION['userid'] == "admin" || $_SESSION['userid'] == $reply_id) {
+                if ($userid == "admin" || $userid == $reply_id) {
                   echo '
                       <form style="display:inline" action="board_delete_server.php?page=' . $page . '&num=' . $num . '&mode=reply_delete" method="post">
                         <input type="hidden" name="page" value="' . $page . '">
@@ -121,7 +138,7 @@
           <input type="hidden" name="hit" value="<?= $hit ?>">
           <input type="hidden" name="page" value="<?= $page ?>">
           <div id="reply_insert">
-            <div id="reply_textarea"><textarea name="reply_content" rows="3" cols="80"></textarea></div>
+            <div id="reply_textarea"><textarea name="reply_content" placeholder="댓글을 입력하세요" rows="3" cols="120"></textarea></div>
             <div id="reply_button"><button>덧글입력</button>
             </div>
           </div>
@@ -134,14 +151,14 @@
         <li><button onclick="location.href='board_list.php?page=<?= $page ?>'">목록</button></li>
         <?php
         // 부모글작성자라면 해당 게시물 삭제, 수정 버튼
-        if ($_SESSION['userid'] == $id) {
-          echo '  <li><button onclick="location.href=`board_modify_form.php?num='.$num.'&page='.$page.'`">수정</button></li>
-                  <li><button onclick="location.href=`board_delete_server.php?num='.$num.'&page='.$page.'&mode=board_delete`">삭제</button></li>';
+        if ($userid == $id) {
+          echo '  <li><button onclick="location.href=`board_modify_form.php?num=' . $num . '&page=' . $page . '`">수정</button></li>
+                  <li><button onclick="location.href=`board_delete_server.php?num=' . $num . '&page=' . $page . '&mode=board_delete`">삭제</button></li>';
         }
         ?>
         <li><button onclick="location.href='board_form.php'">글쓰기</button></li>
       </ul>
-    </div><!-- message_box -->
+    </div><!-- board_box -->
   </section>
   <footer>
     <?php include "../common/footer.php"; ?>

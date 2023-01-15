@@ -5,13 +5,7 @@ $upfile_name = $upfile_tmp_name = $upfile_type = $upfile_size = $upfile_error = 
 $file = $file_ext = $new_file_name = $copy_file_name = $uploaded_file = "";
 
 if (!isset($_SESSION["userid"]) || empty($_SESSION["userid"]) || !isset($_SESSION["username"]) || empty($_SESSION["username"])) {
-  echo ("
-  <script>
-  alert('게시판 글쓰기는 로그인 후 이용 가능합니다 \n 로그인 페이지로 이동합니다');
-  location.href = 'http://{$_SERVER['HTTP_HOST']}/source20230105/login/login.php';
-  </script>
-  ");
-  exit();
+  header("location: board_view.php");
 } else {
   $userid = $_SESSION["userid"];
   $username = $_SESSION["username"];

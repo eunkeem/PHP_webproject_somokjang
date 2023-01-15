@@ -6,8 +6,8 @@ body {
 }
 .slideshow {
   min-width: 960px;
-  height: 700px;
-  background-color: black;
+  height: 600px;
+  background-color: white;
   position: relative;
   overflow: hidden;
 }
@@ -22,21 +22,26 @@ body {
   position: absolute;
   text-align: center;
 }
-
+img {
+  width: 100%;
+  object-fit: fill;
+}
 /* nav */
 .prev {
-  margin-left: -460px;
+  margin-left: -45%;
 }
 .next {
-  margin-left: 460px;
+  margin-left: 42%;
 }
 .nav a {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 5rem;
-  color: goldenrod;
+  font-size: 4rem;
+}
+.nav i {
+  color: white;
   opacity: 0.6;
 }
 
@@ -49,12 +54,10 @@ body {
   right: 0;
 }
 .indicator a {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding: 1.5rem;
-  color: goldenrod;
-  opacity: 0.7;
 }
 .indicator a.active {
-  color: burlywood;
-  opacity: 1;
+  color: white;
+  opacity: 0.7;
 }
