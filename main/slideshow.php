@@ -1,4 +1,4 @@
-<body onload="call_js()">
+<body onload="main_slide_js()">
   <div class="slideshow">
     <div class="slideshow_slide">
       <!-- <img src="" alt=""> -->

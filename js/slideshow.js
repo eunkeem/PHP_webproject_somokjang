@@ -1,4 +1,4 @@
-function call_js() {
+function main_slide_js() {
   let slideshowSlide = document.querySelector(".slideshow_slide");
   let arraySlide = document.querySelectorAll(".slideshow_slide a");
   let prev = document.querySelector(".prev");

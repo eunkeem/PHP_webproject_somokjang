@@ -29,7 +29,7 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: "Noto Sans KR", sans-serif;
+  /* font-family: "Noto Sans KR", sans-serif; */
 }
 /* 페이지 기본 글꼴과 크기 설정 */
 img {
@@ -88,7 +88,7 @@ header {
   margin-right: 0.5rem;
 }
 #logo {
-  font-family: "Noto Serif SC", serif;
+  font-family: "Noto Serif TC", serif;
   margin: 1.5rem 0;
   /* font-weight: 400; */
   font-size: 2.8rem;

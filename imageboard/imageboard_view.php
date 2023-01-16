@@ -17,24 +17,29 @@
       </h3>
       <ul id="board_list2">
         <?php
-        if (!$userid) {
-          echo ("<script>
-          alert('로그인 후 이용해주세요!');
-          history.go(-1);
-        </script>
-        ");
-          exit;
-        }
+        // if (!$userid) {
+        //   echo ("<script>
+        //   alert('로그인 후 이용해주세요!');
+        //   history.go(-1);
+        // </script>
+        // ");
+        //   exit;
+        // }
         include "../db/db_connector.php";
 
+        // 메인페이지에서 링크로 들어와 페이지값이 없을 경우 첫페이지로가도록
+        if (!isset($_GET["page"])) {
+          $page = 1;
+        } else {
+          $page = $_GET["page"];
+        }
         $num = $_GET["num"];
-        $page = $_GET["page"];
 
         $sql = "select * from image_board where num=$num";
         $result = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($result);
-        
-        if(!$row){
+
+        if (!$row) {
           echo ("<script>
           alert('아직 기획된 전시가 없습니다');
           history.go(-1);
@@ -71,17 +76,9 @@
           $image_width = $image_info[0];
           $image_height = $image_info[1];
           $image_type = $image_info[2];
-          if ($image_height > 250) {
-            if ($image_height === $image_width) {
-              $image_width = $image_height = 250;
-            } elseif ($image_width > $image_height) {
-              $image_height = 250;
-              $image_width = 335;
-            } elseif ($image_width < $image_height) {
-              $image_height = 250;
-              $image_width = 188;
-            }
-          }
+
+          $image_height = 400;
+          $image_width = 281;
         }
         ?>
         <ul id="view_content">

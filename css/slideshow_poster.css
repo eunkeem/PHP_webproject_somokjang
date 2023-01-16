@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+#exibition {
+  border: 1px solid black;
+  margin: 0;
+  padding: 0;
+}
+.posterslideshow {
+  min-width: 210px;
+  /* height: 600px; */
+  /* background-color: white; */
+  position: relative;
+  overflow: hidden;
+}
+.posterslideshow_slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.posterslideshow_slide a {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+}
+.posterslideshow_slide img {
+  width: 100%;
+  object-fit: fill;
+}

@@ -28,8 +28,8 @@
         $result = mysqli_query($con, $sql);
         $row    = mysqli_fetch_array($result);
         $total_record = intval($row[0]); // 전체 글 수
-        if($total_record==0){
-          if($userlevel ==1){
+        if ($total_record == 0) {
+          if ($userlevel == 1) {
             header("location: http://{$_SERVER['HTTP_HOST']}/somokjang/imageboard/imageboard_form.php");
           }
           echo ("<script>
@@ -63,16 +63,6 @@
           $list[$i]['no'] = $list_num - $i;
           $i++;
         }
-        // for (; $row = mysqli_fetch_assoc($result); $i++) {
-        //   //$row 배열을 $list[$i] 저장하기 따라서 2차원배열이 진행이 됨. 
-        //   $list[$i] = $row;
-        //   //번호순서
-        //   $list_num = $total_record - ($page - 1) * $scale; 
-        //   $list[$i]['no'] = $list_num -$i;
-        // }
-
-        // $image_width = 200;
-        // $image_height = 200;
 
         for ($i = 0; $i < count($list); $i++) {
           $file_image = (!empty($list[$i]['file_name'])) ? "<img src='../img/no-image.png'>" : " ";
@@ -81,8 +71,8 @@
           if (!empty($list[$i]['file_name'])) {
             // 실재 이미지 사이즈 정보를 가져옴
             $image_info = getimagesize("../data/" . $list[$i]['file_copied']);
-            $image_width = 281;
-            $image_height = 400;
+            $image_width = 224;
+            $image_height = 320;
             $image_type = $image_info[2];
             $file_copied = $list[$i]['file_copied'];
           }

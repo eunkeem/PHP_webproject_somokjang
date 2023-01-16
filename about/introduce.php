@@ -6,6 +6,7 @@
   <title> 小 木 匠 </title>
   <link rel="stylesheet" type="text/css" href="../css/common.css">
   <link rel="stylesheet" type="text/css" href="../css/contact.css">
+
 </head>
 
 <body>

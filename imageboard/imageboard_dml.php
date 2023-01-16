@@ -24,15 +24,7 @@ if (isset($_POST["mode"]) && $_POST["mode"] === "delete") {
   $row = mysqli_fetch_array($result);
   $writer = $row["id"];
 
-  // if ($userlevel !== 1) {
-  //   echo ("
-  //   <script>
-  //   alert('삭제권한이 없습니다');
-  //   history.go(-1)
-  //   </script>
-  // ");;
-  //   exit;
-  // }
+
   $copied_name = $row["file_copied"];
 
   if ($copied_name) {
@@ -72,9 +64,11 @@ if (isset($_POST["mode"]) && $_POST["mode"] === "delete") {
     $file_name = $file[0]; //(memo)
     $file_ext = $file[1]; //(sql)
 
-    $new_file_name = date("Y_m_d_H_i_s");
-    $new_file_name = $new_file_name . "_" . $file_name;
-    $copied_file_name = $new_file_name . "." . $file_ext;
+    // $new_file_name = date("Y_m_d_H_i_s");
+    // $new_file_name = $new_file_name . "_" . $file_name;
+    // $copied_file_name = $new_file_name . "." . $file_ext;
+    // $uploaded_file = $upload_dir . $copied_file_name;
+    $copied_file_name = date("Y_m_d_H_i_s") . "." . $file_ext;
     $uploaded_file = $upload_dir . $copied_file_name;
     if ($upfile_size > 1000000) {
       echo ("

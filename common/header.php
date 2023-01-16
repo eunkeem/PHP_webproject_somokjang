@@ -14,6 +14,20 @@ if (isset($_SESSION["userpoint"])) {
   $userpoint = $_SESSION["userpoint"];
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&family=Noto+Serif+KR:wght@300;400;500&family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+</body>
+
+</html>
+
 <div class="header_box">
   <div id="top">
     <ul id="top_menu">

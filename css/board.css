@@ -125,7 +125,7 @@
   float: right;
 }
 #view_content li:nth-child(2) {
-  height: 300px;
+  height: 420px;
   padding: 15px;
   border-bottom: 1.5px solid var(--contact-text-color);
   display: flex;
@@ -149,7 +149,7 @@
   flex-direction: row;
   justify-content: flex-end;
 }
-.buttons li{
+.buttons li {
   margin: 0.1rem;
 }
 

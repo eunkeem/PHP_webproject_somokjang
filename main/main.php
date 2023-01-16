@@ -21,42 +21,31 @@
     }
     ?>
   </div>
-  <div id="announce">
-    <h4>&nbsp;전시</h4>
+  <div id="exibition">
+    <!-- onload="poster_slide_js()" -->
+    <h4>&nbsp;최근-전시</h4>
     <?php
     include $_SERVER['DOCUMENT_ROOT'] . "/somokjang/db/db_connector.php";
-    $sql = "select * from image_board limit 3";
+    $list = array();
+    $sql = "select * from image_board order by num desc LIMIT 1";
     $result = mysqli_query($con, $sql);
-    if (!$result) {
-      echo "아직 기획된 전시가 없습니다.";
-    } else {
-      while ($row = mysqli_fetch_array($result)) {
-        $num = $row["num"];
-        $subject = $row["subject"];
-        $file_name = $row["file_name"];
-        $file_type = $row["file_type"];
-        $file_copied = $row["file_copied"];
-        $content = str_replace(" ", "&nbsp;", $content);
-        $content = str_replace("\n", "<br>", $content);
-
-        $file_copied = $row['file_copied'];
-        $file_type = $row['file_type'];
-        //이미지 정보를 가져오기 위한 함수 width, height, type
-        if (!empty($file_name)) {
-          $image_info = getimagesize("../data/" . $file_copied);
-          $image_width = $image_info[0];
-          $image_height = $image_info[1];
-        }
-
-    ?>
-        <div class="posterslideshow">
-          <div class="posterslideshow_slide">
-            <a href="../imageboard/imageboard_view.php?num="><img src="../data/<?= $file_copied ?>" width="210" alt="<?= $subject ?>" /></a>
-          </div>
-        </div>
-    <?php
-      }
+    $list[0] = mysqli_fetch_array($result);
+    if (!empty($list[0]['file_name'])) {
+      // 실재 이미지 사이즈 정보를 가져옴
+      $file_copied = $list[0]['file_copied'];
+      $num = $list[0]['num'];
+      $subject = $list[0]['subject'];
     }
+    ?>
+    <div class="posterslideshow">
+      <div class="posterslideshow_slide">
+        <a href="./imageboard/imageboard_view.php?num=<?= $num ?>"><img src="./data/<?= $file_copied ?>" width="180" alt="<?= $subject ?>" /></a>
+      </div>
+    </div>
+    <?php
+
+
+    mysqli_close($con);
     ?>
   </div>
   <div id=" video">
