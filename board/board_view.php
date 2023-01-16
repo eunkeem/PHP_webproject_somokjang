@@ -58,6 +58,25 @@
       $sql = "update board set hit = $new_hit where num = $num";
       mysqli_query($con, $sql);
 
+      //이미지 정보를 가져오기 위한 함수 width, height, type
+      if (!empty($file_name)) {
+        $image_info = getimagesize("../data/" . $copied_file_name);
+        $image_width = $image_info[0];
+        $image_height = $image_info[1];
+        $image_type = $image_info[2];
+        if ($image_height > 250) {
+          if ($image_height === $image_width) {
+            $image_width = $image_height = 250;
+          } elseif ($image_width > $image_height) {
+            $image_height = 250;
+            $image_width = 335;
+          } elseif ($image_width < $image_height) {
+            $image_height = 250;
+            $image_width = 188;
+          }
+        }
+      }
+
       ?>
       <ul id="view_content">
         <li>
@@ -66,7 +85,9 @@
         </li>
         <li>
           <?php
-          if ($file_name) {
+          if (strpos($file_type, "image") !== false) {
+            echo "<img src='../data/$copied_file_name' width='$image_width'><br>";
+          } else if ($file_name) {
             $real_name = $copied_file_name;
             $file_path = "../data/" . $real_name;
             $file_size = filesize($file_path);
@@ -90,7 +111,7 @@
         $total_reply = intval($count_row[0]);
         ?>
 
-        <h4>덧글 <?= $total_reply ?> 개</h4>
+        <h5>덧글 <?= $total_reply ?> 개</h5>
         <?php
         while ($reply_row = mysqli_fetch_array($reply_result)) {
           $reply_num = $reply_row['num'];

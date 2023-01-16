@@ -25,10 +25,6 @@ if (isset($_POST["subject"]) && isset($_POST["content"])) {
   $subject = htmlspecialchars($subject, ENT_QUOTES);
   $content = htmlspecialchars($content, ENT_QUOTES);
 
-
-  print_r($_FILES["upfile"]["name"] == false);
-  exit();
-  
   // 기존파일 삭제 클릭
   if (isset($_POST['item'])) {
     $file_name = $_POST['item'];

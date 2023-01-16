@@ -125,9 +125,17 @@
   float: right;
 }
 #view_content li:nth-child(2) {
-  height: 250px;
+  height: 300px;
   padding: 15px;
   border-bottom: 1.5px solid var(--contact-text-color);
+  display: flex;
+  flex-direction: row;
+}
+#view_content li:nth-child(2) img {
+  border: 1px solid var(--line-grey);
+  margin: 0 2rem 0 3rem;
+  border-radius: 5px;
+  box-shadow: 0 0.25rem 0.75rem rgb(0, 0, 0/5%);
 }
 #checkbox {
   margin-left: 1rem;
@@ -136,11 +144,22 @@
   width: 500px;
   height: 25px;
 }
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.buttons li{
+  margin: 0.1rem;
+}
 
 /* 댓글 */
 #reply {
   color: var(--main-text);
   padding: 10px;
+}
+#reply h5 {
+  margin-left: 0.2rem;
 }
 #reply_title {
   margin: 0.5rem;

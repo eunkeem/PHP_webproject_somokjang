@@ -3,7 +3,6 @@
   --main-text: rgb(70, 61, 40);
   --contact-text-color: rgb(101, 90, 66);
   --contact-bar-color: rgba(119, 105, 79, 0.431);
-  /* --footer-back: #eeeeee; */
   --footer-text: #bdbdbd;
 }
 .works {
@@ -12,8 +11,15 @@
   flex-flow: column wrap;
   width: 68%;
   margin: 3rem auto;
-  align-items: center;
+  /* align-items: center; */
   color: var(--contact-text-color);
+}
+h3 {
+  font-size: 1rem;
+  color: var(--main-text);
+  margin-top: 30px;
+  margin-bottom: 1rem;
+  padding: 10px;
 }
 .works_box {
   width: 100%;

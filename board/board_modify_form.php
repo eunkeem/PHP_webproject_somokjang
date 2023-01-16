@@ -49,7 +49,6 @@
     $content    = $row["content"];
     $file_name  = $row["file_name"];
     ?>
-    <!-- enctype="multipart/form-data 의 기능 : 자료파일 첨부가 가능함 -->
     <form name="board_form" action="board_modify_server.php" method="post" enctype="multipart/form-data">
       <input type="hidden" name="num" value=<?= $num ?>>
       <input type="hidden" name="page" value=<?= $page ?>>

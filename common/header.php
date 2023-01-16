@@ -51,8 +51,10 @@ if (isset($_SESSION["userpoint"])) {
     <ul>
       <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/about/introduce.php">소개</a></li>
       <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/about/works.php">작품</a></li>
-      <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/board/board_list.php">묻고답하기</a></li>
+      <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/imageboard/imageboard_list.php">전시안내</a></li>
+      <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/board/board_list.php">게시판</a></li>
       <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/about/contact.php">연락</a></li>
+      <li><a href="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/message/message_list.php?mode=rv">쪽지함</a></li>
     </ul>
   </div>
 </div>

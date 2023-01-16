@@ -12,6 +12,9 @@
 <body>
   <header><?php include "../common/header.php"; ?></header>
   <div class="works">
+    <h3>
+      작품소개
+    </h3>
     <div class="works_box">
       <div class="img_container" title="사진을 클릭하시면 크게 보실 수 있습니다.">
         <img src="../img/works00.jpg" class="img00" width="300px">
