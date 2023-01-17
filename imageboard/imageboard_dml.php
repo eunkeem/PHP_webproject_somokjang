@@ -1,20 +1,26 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . "/somokjang/db/db_connector.php";
 session_start();
-
-if (!isset($_SESSION["userid"]) || empty($_SESSION["userid"]) || !isset($_SESSION["username"]) || empty($_SESSION["username"])) {
+if(isset($_SESSION["userid"])){
+  $userid = $_SESSION["userid"];
+  if (($_SESSION["userid"]) !== 'admin') {
+    echo ("
+    <script>
+    alert('전시소개는 관리자만 작성 할 수 있습니다.');
+    history.go(-1)
+    </script>
+  ");
+    exit;
+  }
+}else{
   echo ("
   <script>
-  alert('이미지게시판 글쓰기는 로그인 후 이용해 주세요!');
-  history.go(-1)
+  alert('잘못된 접근입니다');
+  location.href = '../index.php';
   </script>
 ");
   exit;
-} else {
-  $userid = $_SESSION["userid"];
-  $username = $_SESSION["username"];
 }
-
 
 if (isset($_POST["mode"]) && $_POST["mode"] === "delete") {
   $num = $_POST["num"];
@@ -48,9 +54,12 @@ if (isset($_POST["mode"]) && $_POST["mode"] === "delete") {
 } else if (isset($_POST["mode"]) && $_POST["mode"] === "insert") {
   $subject = $_POST["subject"];
   $content = $_POST["content"];
+  $exibition_date = $_POST["exibition_date"];
+  $location = $_POST["location"];
   $subject = htmlspecialchars($subject, ENT_QUOTES);
   $content = htmlspecialchars($content, ENT_QUOTES);
-  $regist_day = date("Y-m-d (H:i)");
+  $exibition_date = htmlspecialchars($exibition_date, ENT_QUOTES);
+  $location = htmlspecialchars($location, ENT_QUOTES);
   $upload_dir = "../data/";
 
   $upfile_name = $_FILES["upfile"]["name"];
@@ -95,8 +104,8 @@ if (isset($_POST["mode"]) && $_POST["mode"] === "delete") {
     $copied_file_name = "";
   }
 
-  $sql = "insert into image_board (id, name, subject, content, regist_day, hit,  file_name, file_type, file_copied) ";
-  $sql .= "values('$userid', '$username', '$subject', '$content', '$regist_day', 0, ";
+  $sql = "insert into image_board (id, name, subject, content, exibition_date, location, regist_day, hit,  file_name, file_type, file_copied) ";
+  $sql .= "values('$userid', '$username', '$subject', '$content', '$exibition_date', '$location', now(), 0, ";
   $sql .= "'$upfile_name', '$upfile_type', '$copied_file_name')";
   mysqli_query($con, $sql);  // $sql 에 저장된 명령 실행
 
@@ -117,10 +126,14 @@ if (isset($_POST["mode"]) && $_POST["mode"] === "delete") {
 } else if (isset($_POST["mode"]) && $_POST["mode"] === "modify") {
   $num = $_POST["num"];
   $page = $_POST["page"];
-  $subject = mysqli_real_escape_string($con, $_POST["subject"]);
-  $content = mysqli_real_escape_string($con, $_POST["content"]);
+  $subject = $_POST["subject"];
+  $content = $_POST["content"];
+  $exibition_date = $_POST["exibition_date"];
+  $location = $_POST["location"];
   $subject = htmlspecialchars($subject, ENT_QUOTES);
   $content = htmlspecialchars($content, ENT_QUOTES);
+  $exibition_date = htmlspecialchars($exibition_date, ENT_QUOTES);
+  $location = htmlspecialchars($location, ENT_QUOTES);
   // 기존파일 삭제 클릭
   if (isset($_POST['item'])) {
     $file_name = $_POST['item'];
@@ -166,10 +179,8 @@ if (isset($_POST["mode"]) && $_POST["mode"] === "delete") {
       }
     } //기존파일삭제클릭
 
-
-
     // update 쿼리
-    $sql_update = "update image_board set subject='$subject', content ='$content', regist_day=NOW(), file_name='$upfile_name',";
+    $sql_update = "update image_board set subject='$subject', content ='$content', exibition_date ='$exibition_date',location='$location', regist_day=NOW(), file_name='$upfile_name',";
     $sql_update .= " file_type = '$upfile_type', file_copied = '$copied_file_name'";
     $sql_update .= "where num = $num";
     $result = mysqli_query($con, $sql_update);
@@ -192,7 +203,7 @@ if (isset($_POST["mode"]) && $_POST["mode"] === "delete") {
     }
   }
   // 첨부파일 변경 없이 update
-  $sql_update = "update board set subject='$subject', content ='$content', regist_day=NOW() ";
+  $sql_update = "update board set subject='$subject', content ='$content', exibition_date ='$exibition_date',location='$location', regist_day=NOW() ";
   $sql_update .= "where num = $num";
   $result = mysqli_query($con, $sql_update);
 
@@ -226,6 +237,7 @@ if (isset($_POST["mode"]) && $_POST["mode"] === "delete") {
   if (!$result) {
     die('Error: ' . mysqli_error($con));
   }
+ 
   $rowcount = mysqli_num_rows($result);
 
   if (!$rowcount) {

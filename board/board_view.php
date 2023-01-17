@@ -65,14 +65,14 @@
         $image_height = $image_info[1];
         $image_type = $image_info[2];
         if ($image_height > 250) {
-          if ($image_height === $image_width) {
+          if ($image_height == $image_width) {
             $image_width = $image_height = 250;
           } elseif ($image_width > $image_height) {
             $image_height = 250;
-            $image_width = 335;
+            $image_width = 400;
           } elseif ($image_width < $image_height) {
             $image_height = 250;
-            $image_width = 188;
+            $image_width = 160;
           }
         }
       }
@@ -86,7 +86,7 @@
         <li>
           <?php
           if (strpos($file_type, "image") !== false) {
-            echo "<img src='../data/$copied_file_name' width='$image_width'><br>";
+            echo "<img src='../data/$copied_file_name' width='$image_width' height='$image_height'><br>";
           } else if ($file_name) {
             $real_name = $copied_file_name;
             $file_path = "../data/" . $real_name;
@@ -159,7 +159,7 @@
           <input type="hidden" name="hit" value="<?= $hit ?>">
           <input type="hidden" name="page" value="<?= $page ?>">
           <div id="reply_insert">
-            <div id="reply_textarea"><textarea name="reply_content" placeholder="댓글을 입력하세요" rows="3" cols="120"></textarea></div>
+            <div id="reply_textarea"><textarea name="reply_content" placeholder="댓글을 입력하세요" rows="3" cols="108"></textarea></div>
             <div id="reply_button"><button>덧글입력</button>
             </div>
           </div>

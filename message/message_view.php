@@ -10,7 +10,7 @@
 
 <body>
   <header><?php include "../common/header.php"; ?></header>
-  <div id="message_box">
+  <div id="board_box">
     <h3>
       <?php
       $mode = $num = "";
@@ -31,7 +31,7 @@
       $row = mysqli_fetch_array($result);
       $send_id = $row["send_id"];
       $rv_id = $row["rv_id"];
-      $regist_day = $row["regist_day"];
+      $regist_day = substr($row["regist_day"], 0, 10);
       $subject = $row["subject"];
       $content = $row["content"];
 
@@ -55,12 +55,14 @@
       mysqli_close($con);
       ?>
     </h3>
-    <ul id="view_content">
+    <ul id="board_list">
       <li>
-        <span class="col1">제목 : <b><?= $subject ?></b></span>
-        <span class="col2"><?= $msg_name ?> | <?= $regist_day ?></span>
+        <span class="col1"></span>
+        <span class="col2">제목 : <b><?= $subject ?></b></span>
+        <span class="col3"></span>
+        <span class="col4"><?= $msg_name ?> | <?= $regist_day ?></span>
       </li>
-      <li><?= $content ?></li>
+      <li id="message_content"><?= $content ?></li>
     </ul>
     <ul class="buttons">
       <li><button onclick="location.href='message_list.php?mode=rv'">수신 쪽지함</button></li>

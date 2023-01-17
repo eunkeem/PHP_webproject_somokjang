@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title> 小 木 匠 </title>
   <link rel="stylesheet" type="text/css" href="../css/common.css">
-  <link rel="stylesheet" type="text/css" href="../css/imgboard.css">
+  <link rel="stylesheet" type="text/css" href="../css/board.css">
   <script>
     function check_input() {
       if (!document.board_form.subject.value) {
@@ -15,6 +15,16 @@
       }
       if (!document.board_form.content.value) {
         alert("내용을 입력하세요!");
+        document.board_form.content.focus();
+        return;
+      }
+      if (!document.board_form.exibition_date.value) {
+        alert("전시기간을 입력하세요!");
+        document.board_form.content.focus();
+        return;
+      }
+      if (!document.board_form.location.value) {
+        alert("위치를 입력하세요!");
         document.board_form.content.focus();
         return;
       }
@@ -40,6 +50,14 @@
           <li>
             <span class="col1">제목 : </span>
             <span class="col2"><input name="subject" type="text"></span>
+          </li>
+          <li>
+            <span class="col1">기간 : </span>
+            <span class="col2"><input name="exibition_date" type="text"></span>
+          </li>
+          <li>
+            <span class="col1">위치 : </span>
+            <span class="col2"><input name="location" type="text"></span>
           </li>
           <li id="text_area">
             <span class="col1">내용 : </span>

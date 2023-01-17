@@ -110,9 +110,9 @@ switch ($mode) {
                     </script>";
             exit();
           }
-
+          
           for ($i = 0; $i < $num_item; $i++) {
-            $num = mysqli_real_escape_string($con, $_POST["item"][$i]);
+            $num = mysqli_real_escape_string($con, $_POST["item"][$i]); 
 
             $sql_same = "select * from board where num = $num ";
             $result = mysqli_query($con, $sql_same);

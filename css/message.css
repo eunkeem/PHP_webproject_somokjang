@@ -5,6 +5,68 @@
   --line-grey: rgba(211, 211, 211, 0.841);
   --footer-back: #efeeeba5;
 }
+/* 게시판 글쓰기(board_form.php) */
+#board_box {
+  height: 500px;
+  margin: 4rem auto 4rem;
+  position: relative;
+  width: 800px;
+}
+#board_box h3 {
+  font-size: 1rem;
+  margin-top: 30px;
+  padding: 10px;
+  color: var(--contact-text-color);
+  border-bottom: 1.5px solid var(--contact-text-color);
+}
+/* 게시판 목록보기(board_list.php) */
+#board_list li {
+  font-size: 0.8rem;
+  padding: 1rem 0;
+  border-bottom: 0.06rem solid var(--line-grey);
+}
+#board_list li:first-child {
+  font-weight: 700;
+  border-bottom: 1.5px solid var(--contact-text-color);
+}
+#board_list span {
+  color: var(--contact-text-color);
+  display: inline-block;
+  text-align: center;
+}
+#board_list .col1 {
+  width: 8%;
+}
+#board_list .col2 {
+  width: 50%;
+  text-align: left;
+}
+#board_list .col3 {
+  width: 20%;
+}
+#board_list .col4 {
+  width: 20%;
+}
+#page_num {
+  text-align: center;
+  margin: 30px 0;
+}
+#page_num li {
+  display: inline;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.buttons li {
+  margin: 0.1rem;
+}
+#board_list #message_content {
+  padding: 1rem 2rem;
+  height: 200px;
+  margin-bottom: 1rem;
+}
 /* 쪽지 보내기(message_form.php) */
 #message_box {
   color: var(--main-text);
@@ -59,68 +121,7 @@
   padding: 5px 23px;
   cursor: pointer;
 }
-/* 수신/송신 쪽지함(message_list.php) */
-#message li {
-  padding: 10px;
-  border-bottom: solid 1px var(--line-grey);
-}
-#message li:nth-child(1) {
-  font-weight: bold;
-}
-#message span {
-  display: inline-block;
-  text-align: center;
-}
-#message .title {
-  font-weight: bold;
-}
-#message .col1 {
-  width: 80px;
-}
-#message .col2 {
-  width: 410px;
-  text-align: left;
-}
-#message .col3 {
-  width: 120px;
-}
-#message .col4 {
-  width: 150px;
-}
-#page_num {
-  text-align: center;
-  margin: 30px 0;
-}
-#page_num li {
-  display: inline;
-}
-#message_box .top_buttons {
-  text-align: right;
-  margin: 20px 0 20px 0;
-}
-#message_box .top_buttons li {
-  display: inline;
-  margin-right: 20px;
-}
-#message_box .top_buttons a:link {
-  text-decoration: none;
-  color: var(--contact-text-color);
-}
-#message_box .top_buttons a:visited {
-  text-decoration: none;
-  color: var(--contact-text-color);
-}
-#message_box .buttons {
-  text-align: right;
-  margin: 20px 0 40px 0;
-}
-#message_box .buttons li {
-  display: inline;
-}
-#message_box .buttons button {
-  padding: 5px 10px;
-  cursor: pointer;
-}
+
 /* 쪽지함 보기(message_view.php) */
 #message_box {
   width: 800px;

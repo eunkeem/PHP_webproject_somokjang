@@ -1,4 +1,7 @@
 <?php
+// 데이터베이스 시간 설정
+date_default_timezone_set("Asia/Seoul");
+
 $con = mysqli_connect("localhost", "root", "123456");
 if (!$con) {
   die("database connect fail" . mysqli_connect_errno());

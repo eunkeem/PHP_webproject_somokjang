@@ -74,25 +74,33 @@
         <input type="hidden" name="num" value=<?= $num ?>>
         <input type="hidden" name="page" value=<?= $page ?>>
         <ul id="board_form">
-        <li>
-          <span class="col1">제목 : </span>
-          <span class="col2"><input id="subject" name="subject" type="text" value="<?= $subject ?>"></span>
-        </li>
-        <li id="text_area">
-          <span class="col1">내용 : </span>
-          <span class="col2">
-            <textarea name="content"><?= $content ?></textarea>
-          </span>
-        </li>
-        <li>
-          <span class="col1">기존파일삭제<input id="checkbox" type="checkbox" name="item" value="<?= $file_name ?>"></span>
-          <span class="col2"><?= $file_name ?></span>
-        </li>
-        <li>
-          <span class="col1">파일 변경</span>
-          <span class="col2"><input name="upfile" type="file"></span>
-        </li>
-      </ul>
+          <li>
+            <span class="col1">제목 : </span>
+            <span class="col2"><input name="subject" type="text" value="<?= $subject ?>"></span>
+          </li>
+          <li>
+            <span class="col1">전시기간 : </span>
+            <span class="col2"><input name="exibition_date" type="text" value="<?= $exibition_date ?>"></span>
+          </li>
+          <li>
+            <span class="col1">전시위치 : </span>
+            <span class="col2"><input name="location" type="text" value="<?= $location ?>"></span>
+          </li>
+          <li id="text_area">
+            <span class="col1">내용 : </span>
+            <span class="col2">
+              <textarea name="content"><?= $content ?></textarea>
+            </span>
+          </li>
+          <li>
+            <span class="col1">기존파일삭제<input id="checkbox" type="checkbox" name="item" value="<?= $file_name ?>"></span>
+            <span class="col2"><?= $file_name ?></span>
+          </li>
+          <li>
+            <span class="col1">파일 변경</span>
+            <span class="col2"><input name="upfile" type="file"></span>
+          </li>
+        </ul>
         <ul class="buttons">
           <li><button type="button" onclick="check_input()">수정완료</button></li>
           <li><button type="button" onclick="location.href='imageboard_list.php'">목록</button></li>

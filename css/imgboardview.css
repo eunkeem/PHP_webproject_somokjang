@@ -31,23 +31,6 @@
   padding: 12px;
   border-bottom: solid 0.06rem  var(--line-grey);
 }
-/* #board_form input { width: 500px; height: 25px; } */
-#board_form textarea {
-  width: 600px;
-  height: 150px;
-}
-#board_form #text_area {
-  position: relative;
-  height: 158px;
-}
-#board_form #text_area .col1 {
-  position: absolute;
-  top: 10px;
-}
-#board_form #text_area .col2 {
-  position: absolute;
-  left: 166px;
-}
 #board_box .buttons {
   text-align: right;
   margin: 1.5rem 0 3rem 0;
@@ -70,38 +53,6 @@
   font-weight: 700;
   border-bottom: 1.5px solid var(--contact-text-color);
 }
-#board_list span {
-  color: var(--contact-text-color);
-  display: inline-block;
-  text-align: center;
-}
-#board_list .col1 {
-  width: 80px;
-}
-#board_list .col2 {
-  width: 330px;
-  text-align: left;
-}
-#board_list .col3 {
-  width: 100px;
-}
-#board_list .col4 {
-  width: 40px;
-}
-#board_list .col5 {
-  width: 180px;
-}
-#board_list .col6 {
-  width: 40px;
-}
-#page_num {
-  text-align: center;
-  margin: 30px 0;
-}
-#page_num li {
-  display: inline;
-}
-
 /* 게시판 내용보기(board_view.php) */
 #board_box {
   width: 800px;
@@ -124,7 +75,7 @@
   float: right;
 }
 #view_content li:nth-child(2) {
-  height: 300px;
+  height: 420px;
   padding: 15px;
   border-bottom: 1.5px solid var(--contact-text-color);
   display: flex;
@@ -136,13 +87,15 @@
   border-radius: 5px;
   box-shadow: 0 0.25rem 0.75rem rgb(0, 0, 0/5%);
 }
-#checkbox {
-  margin-left: 1rem;
+table {
+  margin-top: 2rem;
+  width: 480px;
+  text-align: left;
 }
-#subject {
-  width: 500px;
-  height: 25px;
+th {
+  width: 5.5rem;
 }
+
 .buttons {
   display: flex;
   flex-direction: row;

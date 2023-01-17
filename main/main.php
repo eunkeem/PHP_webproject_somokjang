@@ -23,7 +23,7 @@
   </div>
   <div id="exibition">
     <!-- onload="poster_slide_js()" -->
-    <h4>&nbsp;최근-전시</h4>
+    <h4>&nbsp;최근전시</h4>
     <?php
     include $_SERVER['DOCUMENT_ROOT'] . "/somokjang/db/db_connector.php";
     $list = array();
@@ -49,6 +49,6 @@
     ?>
   </div>
   <div id=" video">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/HngHgFyTSRU?start=554" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="308" src="https://www.youtube.com/embed/HngHgFyTSRU?start=554" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 </div>

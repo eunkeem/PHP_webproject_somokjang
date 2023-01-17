@@ -10,7 +10,7 @@
 
 <body>
   <header><?php include "../common/header.php"; ?></header>
-  <div id="message_box">
+  <div id="board_box">
     <h3>
       <?php
       if (isset($_GET["page"]) || !empty($_GET["page"])) {
@@ -37,7 +37,7 @@
 
       ?>
     </h3>
-    <ul id="message">
+    <ul id="board_list">
       <li>
         <span class="col1">번호</span>
         <span class="col2">제목</span>

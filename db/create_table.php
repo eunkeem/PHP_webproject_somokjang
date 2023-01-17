@@ -60,20 +60,8 @@ function create_table($con, $table_name)
             KEY `regist_day` (`regist_day`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
         break;
-
-      case 'exibition':
-        $sql = "CREATE TABLE `exibition` (
-              `num` int(11) NOT NULL AUTO_INCREMENT,
-              `subject` char(10) NOT NULL,
-              `content` text NOT NULL,
-              `date` char(20) DEFAULT NULL,
-              `location` char(20) DEFAULT NULL,
-              PRIMARY KEY (`num`)
-              ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-        break;
-
-        case 'message':
-          $sql = "CREATE TABLE `message` (
+      case 'message':
+        $sql = "CREATE TABLE `message` (
             `num` int(11) NOT NULL AUTO_INCREMENT,
             `send_id` char(20) NOT NULL,
             `rv_id` char(20) NOT NULL,
@@ -82,15 +70,16 @@ function create_table($con, $table_name)
             `regist_day` char(20) DEFAULT NULL,
             PRIMARY KEY (`num`)
           ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-          break;
-
-        case 'image_board':
-          $sql = "CREATE TABLE `image_board` (
+        break;
+      case 'image_board':
+        $sql = "CREATE TABLE `image_board` (
               `num` int NOT NULL AUTO_INCREMENT,
               `id` char(15) NOT NULL,
               `name` char(10) NOT NULL,
               `subject` char(200) NOT NULL,
               `content` text NOT NULL,
+              `exibition_date`char(40) NOT NULL,
+              `location`char(40) NOT NULL,
               `regist_day` char(20) NOT NULL,
               `hit` int NOT NULL, 
               `file_name` char(40) NOT NULL,
@@ -99,10 +88,10 @@ function create_table($con, $table_name)
               PRIMARY KEY (`num`),
               KEY `id` (`id`) 
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
-          break;
+        break;
 
-        case 'image_board_reply':
-          $sql = "CREATE TABLE `image_board_reply` (
+      case 'image_board_reply':
+        $sql = "CREATE TABLE `image_board_reply` (
               `num` int(11) NOT NULL AUTO_INCREMENT,
               `parent` int(11) NOT NULL,
               `id` char(15) NOT NULL,
@@ -113,8 +102,23 @@ function create_table($con, $table_name)
               PRIMARY KEY (`num`),
               KEY `regist_day` (`regist_day`)
             ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;";
-          break;
+        break;
 
+        // trigger
+      case 'deleted_member_info':
+        $sql = "CREATE TABLE `deleted_member_info` (
+          `num` int(11) NOT NULL AUTO_INCREMENT,
+          `id` char(15) NOT NULL,
+          `pass` varchar(255) NOT NULL,
+          `name` char(10) NOT NULL,
+          `email` char(80) DEFAULT NULL,
+          `regist_day` char(20) DEFAULT NULL,
+          `level` int(11) DEFAULT NULL,
+          `point` int(11) DEFAULT NULL,
+          `delete_day`char(20) DEFAULT NULL,
+          PRIMARY KEY (`num`)
+          ) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+        break;
       default:
         echo "<script>alert('해당테이블을 찾을수 없습니다.')</script>";
         break;
