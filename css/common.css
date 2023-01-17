@@ -31,6 +31,9 @@
   margin: 0;
   /* font-family: "Noto Sans KR", sans-serif; */
 }
+body {
+  background-color: white;
+}
 /* 페이지 기본 글꼴과 크기 설정 */
 img {
   border: 0;
@@ -66,7 +69,6 @@ header {
 }
 .header_box {
   height: 150px;
-  /* sticky */
   position: sticky;
   top: 0;
 }
@@ -90,8 +92,7 @@ header {
 #logo {
   font-family: "Noto Serif TC", serif;
   margin: 1.5rem 0;
-  /* font-weight: 400; */
-  font-size: 2.8rem;
+  font-size: 3rem;
 }
 #menu_bar {
   margin: 0;
@@ -105,7 +106,8 @@ header {
 }
 #menu_bar li {
   font-family: "Noto Serif KR", serif;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 500;
   margin: auto 2rem;
 }
 

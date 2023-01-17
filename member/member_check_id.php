@@ -50,7 +50,6 @@ if (isset($id)) {
   <p>
     <?php echo $message ?>
   </p>
-  <!-- input 이나 button 사용 -->
   <input type="button" class="btn" onclick="javascript:self.close()" value="닫기">
 </body>
 

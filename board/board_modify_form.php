@@ -83,7 +83,7 @@
     </form>
   </div>
   <footer>
-  <?php include "../common/footer.php"; ?>
+    <?php include "../common/footer.php"; ?>
   </footer>
 </body>
 

@@ -17,9 +17,9 @@
   margin: 0 2rem;
 }
 h4 {
-  font-size: 1.6rem;
+  color: var(--main-text);
+  font-size: 1.2rem;
   border-bottom: 0.15rem solid lightgrey;
-  /* box-shadow: 0.25rem 0.25rem 0.5rem rgb(0 0 0 /20%); */
 }
 #announce li {
   display: flex;

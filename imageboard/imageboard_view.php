@@ -61,7 +61,7 @@
         $exibition_date = str_replace(" ", "&nbsp;", $exibition_date);
         $location = str_replace(" ", "&nbsp;", $location);
         $location = str_replace("\n", "<br>", $location);
-      
+
         // 조회수 증가
         $new_hit = $hit + 1;
         $sql = "update image_board set hit=$new_hit where num=$num";
@@ -116,36 +116,37 @@
             </table>
           </li>
         </ul>
-        <!--덧글내용시작  -->
-        <div id="reply">
-          <?php
-          $sql = "select * from `image_board_reply` where parent='$num' ";
-          $reply_result = mysqli_query($con, $sql);
-          $sql_count = "select count(*) from `image_board_reply` where parent='$num' ";
-          $reply_count_result = mysqli_query($con, $sql_count);
-          $count_row = mysqli_fetch_array($reply_count_result);
-          $total_reply = intval($count_row[0]);
-          ?>
+      </ul>
+      <!--덧글  -->
+      <div id="reply">
+        <?php
+        $sql = "select * from `image_board_reply` where parent='$num' ";
+        $reply_result = mysqli_query($con, $sql);
+        $sql_count = "select count(*) from `image_board_reply` where parent='$num' ";
+        $reply_count_result = mysqli_query($con, $sql_count);
+        $count_row = mysqli_fetch_array($reply_count_result);
+        $total_reply = intval($count_row[0]);
+        ?>
 
-          <h5>덧글 <?= $total_reply ?> 개</h5>
-          <?php
-          while ($reply_row = mysqli_fetch_array($reply_result)) {
-            $reply_num = $reply_row['num'];
-            $reply_id = $reply_row['id'];
-            $reply_nick = $reply_row['nick'];
-            $reply_date = substr($reply_row['regist_day'], 0, 10);
-            $reply_content = $reply_row['content'];
-            $reply_content = str_replace("\n", "<br>", $reply_content);
-            $reply_content = str_replace(" ", "&nbsp;", $reply_content);
-          ?>
-            <div id="reply_title">
-              <ul>
-                <li><?= $reply_id . "&nbsp;&nbsp;" . $reply_date ?></li>
-                <li id="mdi_del">
-                  <?php
-                  // 관리자모드이거나 해당댓글작성자라면 삭제 가능 하도록
-                  if ($userid == "admin" || $userid == $reply_id) {
-                    echo '
+        <h5>덧글 <?= $total_reply ?> 개</h5>
+        <?php
+        while ($reply_row = mysqli_fetch_array($reply_result)) {
+          $reply_num = $reply_row['num'];
+          $reply_id = $reply_row['id'];
+          $reply_nick = $reply_row['nick'];
+          $reply_date = substr($reply_row['regist_day'], 0, 10);
+          $reply_content = $reply_row['content'];
+          $reply_content = str_replace("\n", "<br>", $reply_content);
+          $reply_content = str_replace(" ", "&nbsp;", $reply_content);
+        ?>
+          <div id="reply_title">
+            <ul>
+              <li><?= $reply_id . "&nbsp;&nbsp;" . $reply_date ?></li>
+              <li id="mdi_del">
+                <?php
+                // 관리자모드이거나 해당댓글작성자라면 삭제 가능 하도록
+                if ($userid == "admin" || $userid == $reply_id) {
+                  echo '
                       <form style="display:inline" action="imageboard_dml.php" method="post">
                       <input type="hidden" name="page" value="' . $page . '">
                       <input type="hidden" name="hit" value="' . $hit . '">
@@ -155,71 +156,65 @@
                       <span>' . $reply_content . '</span>
                       <input type="submit" value="삭제">
                       </form>';
-                  } else {
-                    echo '
+                } else {
+                  echo '
                       <form style="display:inline" action="#" method="post">
                         <span>' . $reply_content . '</span>
                       </form>';
-                  }
-                  ?>
-                </li>
-              </ul>
+                }
+                ?>
+              </li>
+            </ul>
+          </div>
+        <?php
+        } //end of while
+        mysqli_close($con);
+        ?>
+        <form name="ripple_form" action="imageboard_dml.php?mode=insert_reply" method="post">
+          <input type="hidden" name="mode" value="insert_reply">
+          <input type="hidden" name="parent" value="<?= $num ?>">
+          <input type="hidden" name="hit" value="<?= $hit ?>">
+          <input type="hidden" name="page" value="<?= $page ?>">
+          <div id="ripple_insert">
+            <div id="ripple_textarea"> <textarea name="ripple_content" rows="3" cols="80"></textarea>
             </div>
-            <!-- reply_title -->
-          <?php
-          } //end of while
-          mysqli_close($con);
-          ?>
-          <form name="ripple_form" action="imageboard_dml.php?mode=insert_reply" method="post">
-            <input type="hidden" name="mode" value="insert_reply">
-            <input type="hidden" name="parent" value="<?= $num ?>">
-            <input type="hidden" name="hit" value="<?= $hit ?>">
-            <input type="hidden" name="page" value="<?= $page ?>">
-            <div id="ripple_insert">
-              <div id="ripple_textarea">
-                <textarea name="ripple_content" rows="3" cols="80"></textarea>
-              </div>
-              <div id="ripple_button">
-                <button>덧글입력</button>
-              </div>
+            <div id="ripple_button">
+              <button>덧글입력</button>
             </div>
-            <!--end of ripple_insert -->
-          </form>
-        </div>
-        <!--end of ripple2  -->
+          </div> <!--end of ripple_insert -->
+        </form>
+      </div> <!--end of reply  -->
 
-
-
-        <ul class="buttons">
+      <ul class="buttons">
+        <li>
+          <button onclick="location.href='imageboard_list.php?page=<?= $page ?>'">목록</button>
+        </li>
+        <?php
+        if ($userlevel == 1) {
+        ?>
           <li>
-            <button onclick="location.href='imageboard_list.php?page=<?= $page ?>'">목록</button>
+            <form action="imageboard_modify_form.php" method="post">
+              <button>수정</button>
+              <input type="hidden" name="num" value=<?= $num ?>>
+              <input type="hidden" name="page" value=<?= $page ?>>
+              <input type="hidden" name="mode" value="modify">
+            </form>
           </li>
-          <?php
-          if ($userlevel == 1) {
-          ?>
-            <li>
-              <form action="imageboard_modify_form.php" method="post">
-                <button>수정</button>
-                <input type="hidden" name="num" value=<?= $num ?>>
-                <input type="hidden" name="page" value=<?= $page ?>>
-                <input type="hidden" name="mode" value="modify">
-              </form>
-            </li>
-            <li>
-              <form action="imageboard_dml.php?mode=delete" method="post">
-                <button>삭제</button>
-                <input type="hidden" name="num" value=<?= $num ?>>
-                <input type="hidden" name="page" value=<?= $page ?>>
-                <input type="hidden" name="mode" value="delete">
-              </form>
-            </li>
-            <li>
-              <button onclick="location.href='imageboard_form.php'">글쓰기</button>
-            </li>
-          <?php
-          }
-          ?>
-        </ul>
+          <li>
+            <form action="imageboard_dml.php?mode=delete" method="post">
+              <button>삭제</button>
+              <input type="hidden" name="num" value=<?= $num ?>>
+              <input type="hidden" name="page" value=<?= $page ?>>
+              <input type="hidden" name="mode" value="delete">
+            </form>
+          </li>
+          <li>
+            <button onclick="location.href='imageboard_form.php'">글쓰기</button>
+          </li>
+        <?php
+        }
+        ?>
+      </ul>
     </div> <!-- board_box -->
   </section>
   <footer>

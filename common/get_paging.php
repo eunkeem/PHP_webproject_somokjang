@@ -1,4 +1,5 @@
 <?php
+
 /**  여러 페이지가 나오는 게시판에 페이지 숫자 출력하는 두가지 함수*/
 
 // $write_page : 보여줄 페이지 숫자 예)1~10 씩 끊어서
@@ -77,8 +78,8 @@ function get_paging2($current_page, $total_page, $url)
     }
   }
 
-   //  다음 ▶
-   if ($total_page >= 2 && $current_page != $total_page) {
+  //  다음 ▶
+  if ($total_page >= 2 && $current_page != $total_page) {
     $new_page = $current_page + 1;
     $str .= '<a href="' . $url . $new_page . '" >' . PHP_EOL;
     echo "<li>" . $str . "다음 ▶</a> </li>";

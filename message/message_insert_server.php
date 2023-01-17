@@ -2,9 +2,6 @@
 include $_SERVER['DOCUMENT_ROOT'] . "/somokjang/db/db_connector.php";
 $send_id = $rv_id = $subject = $content = "";
 
-// var_dump($_GET["mode"]);
-// exit();
-
 if (!isset($_GET["mode"])) {
   echo ("<script>
   alert('잘못된 접근입니다');
@@ -14,7 +11,6 @@ if (!isset($_GET["mode"])) {
 } else {
   $mode = $_GET["mode"];
 }
-
 
 switch ($mode) {
   case "firstmesssage":
@@ -68,31 +64,26 @@ switch ($mode) {
       $rv_id = mysqli_real_escape_string($con, $_POST["rv_id"]);
       $subject = mysqli_real_escape_string($con, $_POST["subject"]);
       $content = mysqli_real_escape_string($con, $_POST["content"]);
-      // 참고(https://www.w3schools.com/Php/php_form_validation.asp)
-      // 엔티티 코드로 변환(trim, stripslashes 기능은 뺄것)
-      // ENT_QUOTES : ''(홑따옴표)와 ""(곁따옴표) 둘 다 변환
       $subject = htmlspecialchars($subject, ENT_QUOTES);
       $content = htmlspecialchars($content, ENT_QUOTES);
 
-     if (empty($subject)) {
+      if (empty($subject)) {
         header("location: message_reponse_form.php?error=제목을 입력해 주세요");
       } elseif (empty($content)) {
         header("location: message_reponse_form.php?error=내용을 입력해 주세요");
       } else {
-          // 입력
-          $sql_insert = "insert into message (send_id, rv_id, subject, content, regist_day) ";
-          $sql_insert .= "values ('$send_id','$rv_id','$subject','$content', NOW()); ";
-          // print_r($sql_insert);
-          $result = mysqli_query($con, $sql_insert);
-          mysqli_close($con);
-          if ($result) {
-            header("location: message_list.php?mode=rv");
-            exit();
-          } else {
-            header("location: message_reponse_form.php?error=전송과정에 문제가 생겼습니다<br>관리자에게 문의하세요");
-            exit();
-          }
-       
+        // 입력
+        $sql_insert = "insert into message (send_id, rv_id, subject, content, regist_day) ";
+        $sql_insert .= "values ('$send_id','$rv_id','$subject','$content', NOW()); ";
+        $result = mysqli_query($con, $sql_insert);
+        mysqli_close($con);
+        if ($result) {
+          header("location: message_list.php?mode=rv");
+          exit();
+        } else {
+          header("location: message_reponse_form.php?error=전송과정에 문제가 생겼습니다<br>관리자에게 문의하세요");
+          exit();
+        }
       }
     } else {
       header("location: message_reponse_form.php");

@@ -2,7 +2,7 @@
 include "../db/db_connector.php";
 $num = $page = "";
 
-if (!isset($_GET["num"]) || !isset($_GET["page"])|| !isset($_GET["mode"])) {
+if (!isset($_GET["num"]) || !isset($_GET["page"]) || !isset($_GET["mode"])) {
   echo ("<script>
   alert('비정상적인 접근입니다.')
   location.href = 'http://{$_SERVER['HTTP_HOST']}/somokjang/index.php';

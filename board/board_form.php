@@ -24,7 +24,7 @@
 </head>
 
 <body>
-<header><?php include "../common/header.php"; ?></header>
+  <header><?php include "../common/header.php"; ?></header>
   <?php
   if (!isset($userid) || empty($userid)) {
     echo ("<script>
@@ -66,7 +66,7 @@
     </form>
   </div>
   <footer>
-  <?php include "../common/footer.php"; ?>
+    <?php include "../common/footer.php"; ?>
   </footer>
 </body>
 

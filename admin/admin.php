@@ -10,10 +10,9 @@
 
 <body>
   <header>
-  <header><?php include "../common/header.php"; ?></header>
+    <header><?php include "../common/header.php"; ?></header>
     <?php
     $userlevel = "";
-    
     if (isset($_SESSION["userlevel"])) {
       $userlevel = $_SESSION["userlevel"];
       if ($userlevel != 1) {
@@ -30,7 +29,6 @@
   <section>
     <div id="admin_box">
       <h3 id="member_title">관리자 모드 > 회원 관리</h3>
-      
       <ul id="member_list">
         <li>
           <span class="col1">번호</span>
@@ -67,8 +65,7 @@
               <span class="col5"><input type="text" name="point" value="<?= $point ?>"></span>
               <span class="col6"><?= $regist_day ?></span>
               <span class="col7"><button type="submit">수정</button></span>
-              <span class="col8"><button type="button" 
-              onclick="location.href = 'admin_management_server.php?mode=delete&num=<?= $num ?>'">삭제</button></span>
+              <span class="col8"><button type="button" onclick="location.href = 'admin_management_server.php?mode=delete&num=<?= $num ?>'">삭제</button></span>
             </form>
           </li>
         <?php
@@ -91,7 +88,6 @@
           $sql_select = "select * from board order by num desc";
           $result = mysqli_query($con, $sql_select);
           $total_record = mysqli_num_rows($result);
-
           $number = $total_record;
 
           while ($row = mysqli_fetch_array($result)) {
@@ -121,7 +117,7 @@
     </div><!-- admin_box -->
   </section>
   <footer>
-  <?php include "../common/footer.php"; ?>
+    <?php include "../common/footer.php"; ?>
   </footer>
 </body>
 

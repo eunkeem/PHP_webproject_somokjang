@@ -16,7 +16,6 @@
       전시안내 > 목록보기
     </h3>
     <ul class="works_box">
-
       <?php
       include "../db/db_connector.php";
 

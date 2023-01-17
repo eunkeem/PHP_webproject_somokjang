@@ -23,11 +23,9 @@ if (isset($_SESSION["userpoint"])) {
 </head>
 
 <body>
-
 </body>
 
 </html>
-
 <div class="header_box">
   <div id="top">
     <ul id="top_menu">

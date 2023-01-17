@@ -26,7 +26,7 @@
         ?>
       </div>
       <label for="">비밀번호</label>
-      <input type="password" placeholder="비밀번호" name="password" >
+      <input type="password" placeholder="비밀번호" name="password">
       <div>
         <input type="button" class="btn" onclick="login_check_input()" value="로그인">
       </div>

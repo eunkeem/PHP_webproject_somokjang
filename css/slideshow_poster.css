@@ -7,8 +7,6 @@
 }
 .posterslideshow {
   min-width: 210px;
-  /* height: 600px; */
-  /* background-color: white; */
   position: relative;
   overflow: hidden;
 }

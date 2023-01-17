@@ -7,11 +7,9 @@
 }
 .works {
   display: flex;
-  /* flex-direction: column; */
   flex-flow: column wrap;
   width: 68%;
   margin: 3rem auto;
-  /* align-items: center; */
   color: var(--contact-text-color);
 }
 h3 {

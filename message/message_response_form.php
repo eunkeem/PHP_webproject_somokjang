@@ -28,15 +28,15 @@
   <div id="message_box">
     <h3 id="write_title">답장 보내기</h3>
     <?php
-      if (isset($_GET['error'])) {
-        echo "<li class = 'error'>{$_GET['error']}</li>";
-      }
-      if (isset($_GET['success'])) {
-        echo "<li class = 'success'>{$_GET['success']}</li>";
-      }
-    
+    if (isset($_GET['error'])) {
+      echo "<li class = 'error'>{$_GET['error']}</li>";
+    }
+    if (isset($_GET['success'])) {
+      echo "<li class = 'success'>{$_GET['success']}</li>";
+    }
+
     $num = "";
-       if (!isset($_GET["num"]) || !$userid) {
+    if (!isset($_GET["num"]) || !$userid) {
       echo ("<script>
             alert('잘못된 접근입니다')
             location.href = 'http://{$_SERVER['HTTP_HOST']}/somokjang/index.php';

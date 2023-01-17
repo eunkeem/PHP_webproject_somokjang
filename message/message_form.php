@@ -52,8 +52,8 @@
           echo "<li class = 'success'>{$_GET['success']}</li>";
         }
         ?>
-        <li><span><a href="message_list.php?mode=rv">수신 쪽지함 </a></span></li>
-        <li><span><a href="message_list.php?mode=send">송신 쪽지함</a></span></li>
+        <!-- <li><span><a href="message_list.php?mode=rv">수신 쪽지함 </a></span></li>
+        <li><span><a href="message_list.php?mode=send">송신 쪽지함</a></span></li> -->
       </ul>
     </div>
     <form name="message_form" action="http://<?= $_SERVER['HTTP_HOST']; ?>/somokjang/message/message_insert_server.php?&mode=firstmesssage" method="post">

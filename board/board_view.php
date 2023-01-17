@@ -76,7 +76,6 @@
           }
         }
       }
-
       ?>
       <ul id="view_content">
         <li>
@@ -162,11 +161,9 @@
             <div id="reply_textarea"><textarea name="reply_content" placeholder="댓글을 입력하세요" rows="3" cols="108"></textarea></div>
             <div id="reply_button"><button>덧글입력</button>
             </div>
-          </div>
-          <!--end of reply_insert -->
+          </div> <!--end of reply_insert -->
         </form>
       </div> <!--end of reply  -->
-
 
       <ul class="buttons">
         <li><button onclick="location.href='board_list.php?page=<?= $page ?>'">목록</button></li>

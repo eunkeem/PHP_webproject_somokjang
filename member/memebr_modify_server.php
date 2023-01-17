@@ -30,7 +30,6 @@ if (isset($_POST["id"]) && isset($_POST["password"]) && isset($_POST["email"])) 
       $result = mysqli_query($con, $sql_update);
       mysqli_close($con);
       if ($result) {
-        // header("location: ../index.php");
         echo ("<script>
                 alert('회원정보를 성공적으로 수정했습니다')
                 location.href = '../index.php';
@@ -47,7 +46,7 @@ if (isset($_POST["id"]) && isset($_POST["password"]) && isset($_POST["email"])) 
       alert('회원정보 검색에 실패했습니다 \\n 서버 관리자에게 문의하세요')
       location.href = './member_modify_form.php';
     </script>");
-    exit();
+      exit();
     }
   }
 } else {
@@ -55,5 +54,5 @@ if (isset($_POST["id"]) && isset($_POST["password"]) && isset($_POST["email"])) 
       alert('빈칸을 모두  채워주세요')
       location.href = './member_modify_form.php';
     </script>");
-    exit();
+  exit();
 }

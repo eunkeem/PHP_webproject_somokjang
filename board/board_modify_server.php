@@ -2,8 +2,6 @@
 session_start();
 include $_SERVER['DOCUMENT_ROOT'] . "/somokjang/db/db_connector.php";
 $num = $page = $subject = $content = "";
-// $upfile_name = $upfile_tmp_name = $upfile_type = $upfile_size = $upfile_error = "";
-// $file = $file_ext = $new_file_name = $copy_file_name = $uploaded_file = "";
 
 if (isset($_POST["num"]) && isset($_POST["page"]) && !empty($_POST["num"]) && !empty($_POST["page"])) {
   $num = $_POST["num"];
@@ -69,8 +67,6 @@ if (isset($_POST["subject"]) && isset($_POST["content"])) {
         exit();
       }
     } //기존파일삭제클릭
-
-   
 
     // update 쿼리
     $sql_update = "update board set subject='$subject', content ='$content', regist_day=NOW(), file_name='$upfile_name',";

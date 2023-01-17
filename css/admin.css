@@ -77,9 +77,6 @@
 #board_list .col5 {
   width: 20%;
 }
-/* #board_list .col5_00 {
-  width: 20%;
-} */
 #board_list .col6 {
   width: 12%;
 }
@@ -104,7 +101,6 @@
   margin: 20px 0 0 20px;
   padding: 5px 10px;
 }
-
 #board_list li .col5_filename {
   font-size: 0.5rem;
 }

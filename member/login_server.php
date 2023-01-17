@@ -40,7 +40,7 @@ if (isset($_POST["id"]) && isset($_POST["password"])) {
               alert('아이디가 존재하지 않습니다')
               location.href = './login_form.php?&$user_info';
             </script>");
-        exit();
+      exit();
     }
   }
 } else {
@@ -48,6 +48,6 @@ if (isset($_POST["id"]) && isset($_POST["password"])) {
               alert('빈칸을 모두 채워주세요')
               location.href = './login_form.php?&$user_info';
             </script>");
-        exit();
+  exit();
   exit();
 }

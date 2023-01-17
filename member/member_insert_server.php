@@ -47,7 +47,7 @@ if (isset($_POST["id"]) && isset($_POST["password"]) && isset($_POST["name"]) &&
         // header("location: ../index.php?success=성공적으로 가입 되었습니다.");
         exit();
       } else {
-         echo ("<script>
+        echo ("<script>
               alert('회원가입에 실패했습니다 \\n 서버 관리자에게 문의하세요')
               location.href = './member_form.php?&$user_info';
             </script>");
@@ -56,7 +56,7 @@ if (isset($_POST["id"]) && isset($_POST["password"]) && isset($_POST["name"]) &&
     }
   }
 } else {
-   echo ("<script>
+  echo ("<script>
               alert('빈칸을 모두 채워주세요')
               location.href = './member_form.php?&$user_info';
             </script>");

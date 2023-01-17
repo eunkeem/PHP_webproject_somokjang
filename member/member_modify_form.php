@@ -39,7 +39,6 @@
         echo "<input type='text' placeholder='aaa@google.com' name='email'>";
       }
       ?>
-
       <div>
         <input type="button" class="btn" onclick="modify_check_input()" value="저장">
         <input type="button" class="btn" onclick="reset_form()" value="삭제">

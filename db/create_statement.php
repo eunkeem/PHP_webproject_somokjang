@@ -12,8 +12,5 @@ create_table($con, "image_board");
 create_table($con, "image_board_reply");
 create_table($con, "deleted_member_info");
 
-// procedure
-
-
 // trigger
 create_trigger($con, "delete_member");

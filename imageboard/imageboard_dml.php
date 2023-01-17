@@ -1,7 +1,7 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . "/somokjang/db/db_connector.php";
 session_start();
-if(isset($_SESSION["userid"])){
+if (isset($_SESSION["userid"])) {
   $userid = $_SESSION["userid"];
   if (($_SESSION["userid"]) !== 'admin') {
     echo ("
@@ -12,7 +12,7 @@ if(isset($_SESSION["userid"])){
   ");
     exit;
   }
-}else{
+} else {
   echo ("
   <script>
   alert('잘못된 접근입니다');
@@ -29,8 +29,6 @@ if (isset($_POST["mode"]) && $_POST["mode"] === "delete") {
   $result = mysqli_query($con, $sql);
   $row = mysqli_fetch_array($result);
   $writer = $row["id"];
-
-
   $copied_name = $row["file_copied"];
 
   if ($copied_name) {
@@ -73,10 +71,6 @@ if (isset($_POST["mode"]) && $_POST["mode"] === "delete") {
     $file_name = $file[0]; //(memo)
     $file_ext = $file[1]; //(sql)
 
-    // $new_file_name = date("Y_m_d_H_i_s");
-    // $new_file_name = $new_file_name . "_" . $file_name;
-    // $copied_file_name = $new_file_name . "." . $file_ext;
-    // $uploaded_file = $upload_dir . $copied_file_name;
     $copied_file_name = date("Y_m_d_H_i_s") . "." . $file_ext;
     $uploaded_file = $upload_dir . $copied_file_name;
     if ($upfile_size > 1000000) {
@@ -237,7 +231,7 @@ if (isset($_POST["mode"]) && $_POST["mode"] === "delete") {
   if (!$result) {
     die('Error: ' . mysqli_error($con));
   }
- 
+
   $rowcount = mysqli_num_rows($result);
 
   if (!$rowcount) {
