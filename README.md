@@ -30,6 +30,7 @@ Show the function
 -------------
 |Display|Description|
 |---|---|
+|![xampp](https://user-images.githubusercontent.com/115531855/213119900-596178ad-de1c-4e52-aae0-a27b9127eb9a.JPG)| ⁕ xampp를 이용해 로컬서버구축</br> ⁕ apache 가상호스트|
 |![Data modeling](https://user-images.githubusercontent.com/115531855/213090495-7c23dc09-c31a-45c8-a809-74d0836390fc.PNG)| ⁕ index 페이지가 로드되면 <br/>해당 데이터베이스가 있는지 확인하고 없다면 생성, 선택 <br/>테이블도 마찬가지<br/>  ⁕ 회원삭제시 데이터가 백업 되도록 트리거 생성 <br/> 비밀번호 hash값 넣기위해 varchar(255)|
 |![Main page](https://user-images.githubusercontent.com/115531855/213092569-2c100b6c-1162-4e48-86f6-99dfbc15b83a.jpeg) | ⁕헤더에 메뉴 바</br>⁕슬라이드쇼 : 자바스크립트를 사용</br> ⁕ 공지사항, 전시소개 포스터 : 관리자가 작성한 게시물만 디비에서 로드, </br> 클릭시 해당 게시물 상세페이지로 이동</br> ⁕ 유튜브 재생 링크 |
 |![Member register](https://user-images.githubusercontent.com/115531855/213094265-a7229669-5e80-4856-9a3b-2fc2dfaf02df.jpeg)| ⁕아이디 중복 체크</br> ⁕ 이메일 유효성 검사 javascript test()함수이용</br>⁕ password_hash로 비밀번호 암호화 입력 </br> ⁕ mysqli_real_escape_string 로 입력값 방어 |
