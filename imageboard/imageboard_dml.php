@@ -68,8 +68,8 @@ if (isset($_POST["mode"]) && $_POST["mode"] === "delete") {
 
   if ($upfile_name && !$upfile_error) { // 업로드가 잘되었는지 판단
     $file = explode(".", $upfile_name);
-    $file_name = $file[0]; //(memo)
-    $file_ext = $file[1]; //(sql)
+    $file_name = $file[0];
+    $file_ext = $file[1];
 
     $copied_file_name = date("Y_m_d_H_i_s") . "." . $file_ext;
     $uploaded_file = $upload_dir . $copied_file_name;
@@ -197,7 +197,7 @@ if (isset($_POST["mode"]) && $_POST["mode"] === "delete") {
     }
   }
   // 첨부파일 변경 없이 update
-  $sql_update = "update board set subject='$subject', content ='$content', exibition_date ='$exibition_date',location='$location', regist_day=NOW() ";
+  $sql_update = "update image_board set subject='$subject', content ='$content', exibition_date ='$exibition_date',location='$location', regist_day=NOW() ";
   $sql_update .= "where num = $num";
   $result = mysqli_query($con, $sql_update);
 

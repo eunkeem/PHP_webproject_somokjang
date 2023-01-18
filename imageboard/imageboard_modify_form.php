@@ -59,9 +59,11 @@
         }
         $name = $row["name"];
         $subject = $row["subject"];
-        $content = $row["content"];
+        $exibition_date = $row["exibition_date"];
+        $location = $row["location"];
         $file_name = $row["file_name"];
-        // var_dump($row);
+        $content = $row["content"];
+        // var_dump($subject);
         // exit; 
         if (empty($file_name)) {
           $file_name = "없음";
