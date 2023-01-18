@@ -110,6 +110,7 @@ switch ($mode) {
     }
 
     for ($i = 0; $i < $num_item; $i++) {
+      include $_SERVER['DOCUMENT_ROOT'] . "/somokjang/db/db_connector.php";
       $num = mysqli_real_escape_string($con, $_POST["item"][$i]);
 
       $sql_same = "select * from board where num = $num ";
