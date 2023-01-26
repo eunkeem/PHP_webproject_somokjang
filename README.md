@@ -1,4 +1,4 @@
-# somokjang (personal project)
+# somokjang (PHP web project)
 </br></br>
 ## Summary
 >한국전통가구 작가의 웹사이트를 HTML, CSS, PHP, MySQL을 이용해 제작</br>
