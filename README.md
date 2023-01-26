@@ -1,6 +1,4 @@
 # somokjang (PHP web project)
-</br></br>
-## Summary
 >한국전통가구 작가의 웹사이트를 HTML, CSS, PHP, MySQL을 이용해 제작</br>
 구현 기능 : 회원가입, 로그인, 관리자 모드, 메시지, 일반 게시판, 이미지 게시판, 회원정보 수정, 게시물 수정, 트리거를 이용한 삭제데이터 백업</br>
 
