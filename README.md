@@ -1,8 +1,6 @@
 # somokjang (personal project)
-
-
+</br></br>
 ## Summary
--------------
 >한국전통가구 작가의 웹사이트를 HTML, CSS, PHP, MySQL을 이용해 제작</br>
 구현 기능 : 회원가입, 로그인, 관리자 모드, 메시지, 일반 게시판, 이미지 게시판, 회원정보 수정, 게시물 수정, 트리거를 이용한 삭제데이터 백업</br>
 
@@ -10,9 +8,8 @@
 >Produced a website for Korean traditional furniture craftsmen using HTML, CSS, PHP and MySQL.</br>
 Implementation functions: member registration, login, administrator mode, message, general bulletin board, image bulletin board, member information modification, post modification, backup of deleted data using triggers
 
-
+</br></br>
 ## Development Environment
--------------
 |구분|내용|
 |---|------------------|
 |OS|Windows 10 Home|
@@ -22,14 +19,12 @@ Implementation functions: member registration, login, administrator mode, messag
 |Server|Apache 2.4.54|
 |Github|https://github.com/eunkeem/PHP_webproject_somokjang|
 
-
+</br></br>
 ## Develop Period
--------------
 2023.01.12 ~ 2023.01.18
 
-
+</br></br>
 ## Show the function
--------------
 |Display|Description|
 |---|---|
 |![xampp](https://user-images.githubusercontent.com/115531855/213119900-596178ad-de1c-4e52-aae0-a27b9127eb9a.JPG)| ⁕ xampp를 이용해 로컬서버구축</br> ⁕ apache 가상호스트|
@@ -45,9 +40,8 @@ Implementation functions: member registration, login, administrator mode, messag
 |![Contact](https://user-images.githubusercontent.com/115531855/213102627-38772638-daa0-4f5c-a87f-cf910059840c.jpeg)| ⁕ 연락페이지 </br> ⁕ 카카오맵이용|
 |![Works](https://user-images.githubusercontent.com/115531855/213102995-764de0b2-0eeb-4929-89a1-0ff1e15ca031.jpeg)| ⁕ 작품소개페이지</br> ⁕ javascript이용해서 모달창 이미지확대|
 
-
+</br></br>
 ## Reference
-------------------------------
 |참고포털|웹페이지 주소|
 |---|---|
 |1.w3schoos|https://www.w3schools.com/|
